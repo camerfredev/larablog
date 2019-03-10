@@ -12,7 +12,9 @@
   
 
     <!-- Main Content -->
+    @include('message.flash')
    @yield('content')
+
 
 
 

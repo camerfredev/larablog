@@ -1,12 +1,6 @@
-@extends('frontend.layout',
-    [   'title'=>"je suis la page home",
-         'sub_title'=> 'je suis le sub-title de home'
-    ])
+@extends('frontend.layout')
 
-@push('bg-img')
-    {{asset('blog/img/home-bg.jpg')}}
 
-@endpush
 @section('content')
 
  <div class="container">

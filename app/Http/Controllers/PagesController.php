@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ContactRequest;
+use App\Mail\MailContact;
 
 class PagesController extends Controller
 {
+    /**
+     * homePage
+     *
+     * @return void
+     */
     public function homePage()
     {
         $data=[
@@ -19,6 +27,11 @@ class PagesController extends Controller
 
 
 
+    /**
+     * about
+     *
+     * @return void
+     */
     public function about()
     {
         $data=[
@@ -40,5 +53,17 @@ class PagesController extends Controller
         return view('frontend.pages.contact',compact('data'));
     }
     
+
+    public function Postcontact(ContactRequest $request)
+    {
+        // dd($request->email,$request->name,$request->content );
+
+        // Mail::to('admin@gmail.com')->send(new MailContact($request->email,$request->name,$request->content));
+
+        $request->session()->flash('success', 'votre email bien été envoyer');
+
+        return redirect()->back();
+        // return redirect()->back()->with('success','Votre mail a bien été envoyer');
+    }
 
 }
