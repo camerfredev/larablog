@@ -58,12 +58,12 @@ class PagesController extends Controller
     {
         // dd($request->email,$request->name,$request->content );
 
-        // Mail::to('admin@gmail.com')->send(new MailContact($request->email,$request->name,$request->content));
+        Mail::to('admin@gmail.com')->send(new MailContact($request->name,$request->email,$request->content));
 
         $request->session()->flash('success', 'votre email bien été envoyer');
 
         return redirect()->back();
-        // return redirect()->back()->with('success','Votre mail a bien été envoyer');
+        
     }
 
 }

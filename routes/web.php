@@ -18,11 +18,12 @@ Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::post('/contact', 'PagesController@Postcontact')->name('contact.send');
 
-Route::get('test',function(){
-    return new MailContact('monNom','monEmail','le contenu du message');
+
+// Route::get('/post', function () {
+//     return view('frontend.pages.post');
+// })->name('post');
+
+//les routes du blog
+Route::prefix('blog')->namespace('Blog')->group(function(){
+        Route::get('/','PostsController@index')->name('blog.show');
 });
-
-Route::get('/post', function () {
-    return view('frontend.pages.post');
-})->name('post');
-
